@@ -1,0 +1,78 @@
+{% extends  "back.html.twig" %}
+{% block body %}
+    <h1 top="50%">afficher evenement</h1>
+    <style>
+        table{
+            position: absolute;
+            z-index: 2;
+            left: 50%;
+            top:80%;
+            transform: translate(-50%,-50%);
+            width: 60%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            border-radius: 12px 12px 0 0;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(32,32,32,.3);
+            background: #FAFAFA;
+            text-align: center;
+        }
+        th,td{
+            padding: 12px 15px ;
+        }
+        th{
+            background: #0F192A;
+            color:#FAFAFA ;
+            text-transform: uppercase;
+            font-family: 'Roboto',sans-serif;
+        }
+        td{
+            font-family: 'Open Sans',sans-serif;
+        }
+        tr:nth-child(odd){
+            background-color: #EEEEEE;
+        }
+    </style>
+    <table border="1" width="100%">
+        <thead>
+        <tr>
+            <th title="Field #1">
+                Order ID
+            </th>
+            <th title="Field #2">
+                Nom evenement
+            </th>
+            <th title="Field #3">
+                description evenement
+            </th>
+            <th title="Field #4">
+                Date
+            </th>
+            <th title="Field #5">
+                update
+            </th>
+            <th title="Field #6">
+                delete
+            </th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr {% for e in evenement  %}>
+            <td>{{ e.idevenement }}</td>
+            <td>{{e.nomevenement  }}</td>
+            <td>{{ e.descripevenement}}</td>
+            <td>{{ e.dateevenement|date('Y-m-d') }}</td>
+
+
+
+            <td><a href="{{ path ('updateEV',{'idevenement':e.idevenement}) }}" class="btn btn-primary">update</a></td>
+
+            <td><a href="{{ path ('d',{'idevenement':e.idevenement}) }}" class="btn btn-primary">delete</a></td>
+
+        </tr {% endfor %}>
+        </tbody>
+    </table>
+    <h1><a href="{{ path('export') }}" class="btn btn-primary">Export -></a></h1>
+{% endblock %}

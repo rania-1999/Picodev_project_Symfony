@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="site-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-7 text-center">
+                    <h3 class="scissors text-center">Nos evenements </h3>
+                    <p class="mb-5 lead">ALLEZ Y PARTICIPER </p>
+                </div>
+            </div>
+            <div class="site-section bg-light">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-4 col-md-6 mb-4" {% for e in evenement  %}>
+                            <div class="post-entry-1 h-100">
+                                <a href="single.html">
+                                    <style>
+                                        .zoom {
+
+
+                                            transition: transform .2s; /* Animation */
+
+                                            margin: 0 auto;
+                                        }
+
+                                        .zoom:hover {
+                                            transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+                                        }
+                                    </style>
+                                    <img  src="/uploads/images/products/{{ e.image }}" width="340" height="250" alt="Image"
+                                         class="zoom">
+                                </a>
+                                <div class="post-entry-1-contents">
+                                    <style>
+                                        .animated{
+                                            font-weight: 900;
+                                            text-decoration: none;
+                                            background: linear-gradient(to right , #000000 50%,#FF69B4  50%, #40E0D0);
+                                            background-size: 200%;
+                                            -webkit-background-clip:text;
+                                            -webkit-text-fill-color:transparent;
+                                            transition: 0.5s ease-out;
+
+                                        }
+                                        .animated:hover
+                                        {
+                                            background-position:-100%;
+                                        }
+                                    </style>
+                                    <h2 class="animated">{{ e.nomevenement }}</a></h2>
+                                    <span class="meta d-inline-block mb-3">{{ e.dateevenement|date('Y-m-d') }} <span class="mx-2">by</span> <a href="#">Admin</a></span>
+                                    <p>{{ e.descripevenement  }}</p>
+                                    <p>{{ e.lieu  }}</p>
+
+                                    <p>{{ e.nbrePL }}</p>
+                                </div>
+                            </div>
+                        </div {% endfor %}>
+        </div>
+    </div>
+{% endblock %}

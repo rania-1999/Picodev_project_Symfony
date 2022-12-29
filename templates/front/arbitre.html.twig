@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="site-section bg-light">
+        <div class="container">
+            <div class="row justify-content-center text-center mb-5 section-2-title">
+                <div class="col-md-6">
+                    <h3 class="scissors text-center">Nos arbitres</h3>
+                    <p class="mb-5 lead">Vous voulez postuler?? </p> <p><a href="{{ path ('PostulerAR') }}" class="btn btn-primary">cliquez ici</a></p>
+                </div>
+            </div>
+
+            <style>
+                .profiles{
+                    display: flex;
+                    justify-content: space-around;
+                    float: left;
+                    margin: 20px 80px;
+                    position: relative;
+                }
+                .profile{
+                    flex-basis: 260px;
+                    line-height:20px;
+                    color: #9d9b97;
+                }
+                .profile .profile-img{
+                    height: 260px;
+                    width: 260px;
+                    border-radius: 50%;
+                    filter: grayscale(100%);
+                    cursor:pointer;
+                    transition:400ms;
+
+                }
+                .profile:hover .profile-img{
+                    filter:grayscale(0);
+
+                }
+                .profile p{
+                    font-size: 16px;
+                    margin-top:20px ;
+                    text-align: justify;
+                }
+
+
+            </style>
+          <div class="profiles" {% for a in arbitre %}>
+               <div class="profile" >
+                        <img src="/uploads/images/products/{{ a.image }}"alt="Image"
+                             class="profile-img">
+
+                        <div class="post-entry-1-contents">
+                            <span class="meta">{{ a.filiere }}</span>
+                            <h2>{{ a.nom }} {{ a.prenom }}</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, sapiente.</p>
+                        </div>
+               </div  >
+          </div {% endfor%}>
+
+
+
+
+
+        </div>
+    </div>
+
+
+{% endblock %}

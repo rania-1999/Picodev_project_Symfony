@@ -1,0 +1,42 @@
+{% extends 'back.html.twig' %}
+{% block body %}
+    <div>
+    {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+
+    <h3 >
+        update un evenement
+    </h3>
+
+    <!--begin::Form-->
+    <!--ajouter un evenement-->
+
+    <div>
+
+        <div> {{ form_label(form.nomevenement,'nom evenement') }}</div>
+        {{ form_errors(form.nomevenement) }}
+        {{ form_widget(form.nomevenement) }}
+    </div>
+    <div>
+        <div> {{ form_label(form.descripevenement,'description evenement') }}</div>
+        {{ form_errors(form.descripevenement ) }}
+        {{ form_widget(form.descripevenement) }}
+    </div>
+    <div>
+        <div>    {{ form_label(form.dateevenement,'date evenement') }}</div>
+        {{ form_errors(form.dateevenement) }}
+        {{ form_widget(form.dateevenement) }}
+    </div>
+        <div>
+            <div>    {{ form_label(form.lieu,'lieu') }}</div>
+            {{ form_errors(form.lieu) }}
+            {{ form_widget(form.lieu) }}
+        </div>
+        <div>
+            <div>    {{ form_label(form.nbrePL,'nombre de place') }}</div>
+            {{ form_errors(form.nbrePL) }}
+            {{ form_widget(form.nbrePL) }}
+        </div>
+    {{ form_end(form) }}
+
+    </div>
+{% endblock %}

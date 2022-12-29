@@ -1,0 +1,11 @@
+{% extends 'back.html.twig' %}
+{% block body %}
+<h2>liste d attente</h2>
+<div {% for a in listeatt %}>
+    <img src="/uploads/images/products/{{ a.image }}">
+    <h2>{{ a.nom }} {{ a.prenom }}</h2>
+    <h2>{{ a.filiere }}</h2>
+    <div > <a href="{{ path ('addP',{'id':a.id})}}" class="btn btn-primary">confirmer</a></div>
+    <div > <a href="{{ path ('dPAR',{'id':a.id})}}" class="btn btn-primary">delete</a></div>
+</div {% endfor %}>
+{% endblock %}

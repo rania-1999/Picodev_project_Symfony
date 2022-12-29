@@ -1,0 +1,81 @@
+{% extends 'back.html.twig' %}
+{% block body %}
+   <div top="50%"> <a href="{{ path ('afficherPOS')}}" class="btn btn-primary">voir la liste d attente</a></div>
+<h1> afficher arbitre</h1></br>
+<div><style>
+    table{
+        position: absolute;
+        z-index: 2;
+        left: 60%;
+       top:80%;
+        transform: translate(-50%,-50%);
+        width: 60%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        border-radius: 12px 12px 0 0;
+        overflow: hidden;
+        box-shadow: 0 2px 12px rgba(32,32,32,.3);
+        background: #FAFAFA;
+        text-align: center;
+    }
+    th,td{
+        padding: 12px 15px ;
+    }
+    th{
+        background: #0F192A;
+        color:#FAFAFA ;
+        text-transform: uppercase;
+        font-family: 'Roboto',sans-serif;
+    }
+    td{
+        font-family: 'Open Sans',sans-serif;
+    }
+    tr:nth-child(odd){
+        background-color: #EEEEEE;
+    }
+</style>
+
+<table border="1" width="100%" >
+
+    <thead>
+    <tr>
+        <th title="Field #1">
+            Order ID
+        </th>
+        <th title="Field #2">
+            Nom
+        </th>
+        <th title="Field #3">
+            Prenom
+        </th>
+        <th title="Field #4">
+            Filiere
+        </th>
+        <th title="Field #5">
+            update
+        </th>
+        <th title="Field #6">
+            delete
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr {% for e in arbitre  %}>
+        <td>{{ e.id }}</td>
+        <td>{{e.nom  }}</td>
+        <td>{{ e.prenom}}</td>
+        <td>{{ e.filiere}}</td>
+
+
+
+
+        <td><a href="{{ path ('updateAR',{'id':e.id}) }}" class="btn btn-primary">update</a></td>
+
+        <td><a href="{{ path ('dAR',{'id':e.id}) }}" class="btn btn-primary">delete</a></td>
+
+    </tr {% endfor %}>
+    </tbody>
+</table>
+</div>
+
+{% endblock %}

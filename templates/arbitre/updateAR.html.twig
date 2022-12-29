@@ -1,0 +1,41 @@
+
+{% extends 'back.html.twig' %}
+
+{% block body %}
+    <div>
+        {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+
+        <h1 >
+            Ajouter un arbitre
+        </h1>
+
+        <!--begin::Form-->
+        <!--ajoute1r un evenement-->
+
+        <div>
+
+            <div> {{ form_label(form.nom,'nom ') }}</div>
+            {{ form_errors(form.nom) }}
+            {{ form_widget(form.nom) }}
+        </div>
+        <div>
+            <div> {{ form_label(form.prenom,'prenom') }}</div>
+            {{ form_errors(form.prenom) }}
+            {{ form_widget(form.prenom) }}
+        </div>
+        <div>
+            <div>    {{ form_label(form.filiere,'filiere') }}</div>
+            {{ form_errors(form.filiere) }}
+            {{ form_widget(form.filiere) }}
+        </div>
+        <div>
+
+
+        <div>
+            <div>    {{ form_label(form.disponibilite,'disponibilite') }}</div>
+            {{ form_errors(form.disponibilite) }}
+            {{ form_widget(form.disponibilite) }}
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
